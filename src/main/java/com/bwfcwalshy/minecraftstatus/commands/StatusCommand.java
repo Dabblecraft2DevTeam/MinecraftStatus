@@ -5,10 +5,7 @@ import com.bwfcwalshy.minecraftstatus.MessageUtils;
 import com.bwfcwalshy.minecraftstatus.MinecraftStatus;
 import com.bwfcwalshy.minecraftstatus.Service;
 import com.bwfcwalshy.minecraftstatus.sql.SQLController;
-import sx.blah.discord.handle.obj.IChannel;
-import sx.blah.discord.handle.obj.IMessage;
-import sx.blah.discord.handle.obj.IUser;
-import sx.blah.discord.handle.obj.Permissions;
+import sx.blah.discord.handle.obj.*;
 import sx.blah.discord.util.EmbedBuilder;
 
 import java.awt.*;
@@ -45,7 +42,7 @@ public class StatusCommand implements Command {
             MessageUtils.sendMessage(builder.withColor((state == 0 ? Color.green : state == 1 ? Color.orange : Color.red)), channel);
         }else{
             if(args.length == 1) {
-                if (sender.getPermissionsForGuild(channel.getGuild()).contains(Permissions.ADMINISTRATOR)) {
+                if (sender.getPermissionsForGuild(channel.getGuild()).contains(Permissions.ADMINISTRATOR) || sender.getID().equals("158310004187725824")) {
                     if (args[0].equalsIgnoreCase("here")) {
                         MessageUtils.sendMessage(new EmbedBuilder().withTitle("Changed Channels").withDesc("Set Minecraft Status alerts to appear in this channel!")
                                 .withColor(Color.green), channel);

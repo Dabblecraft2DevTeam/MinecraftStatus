@@ -15,7 +15,7 @@ public class InviteCommand implements Command {
     @Override
     public void onCommand(IUser sender, IChannel channel, IMessage message, String[] args) {
         MessageUtils.sendMessage("You can invite me to your guild using this link! "
-                + new BotInviteBuilder(MinecraftStatus.getInstance().getClient()).withPermissions(EnumSet.of(Permissions.SEND_MESSAGES)).build(), channel);
+                + new BotInviteBuilder(MinecraftStatus.getInstance().getClient()).withPermissions(EnumSet.of(Permissions.SEND_MESSAGES, Permissions.EMBED_LINKS)).build(), channel);
     }
 
     @Override
